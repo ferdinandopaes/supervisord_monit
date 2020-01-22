@@ -1,15 +1,15 @@
-# Monitoramento do Supervisord
+# Supervisord Monit
 
-Template criado para monitorar o serviço do supervisord e também os status das filas criadas por ele no laravel
+Supervisord Monit is a python script that help to discovery, create itens and triggers on Zabbix.
 
-#### Requisitos mínimos
+#### Minimum requirements
 
-- Testado com Zabbix v4.0
+- Zabbix v4.0
 - Python2.7
 
-#### Configuração
+#### Setup
 
-- No arquivo `/etc/supervisor/supervisord.conf` adicione as seguintes linhas:
+- On file named `/etc/supervisor/supervisord.conf` add lines:
 ```
 [inet_http_server]
 port = 127.0.0.1:9001
@@ -18,10 +18,10 @@ port = 127.0.0.1:9001
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 ```
 
-- Execute o reload do serviço do supervisord;
+- Reload supervisord service;
 
-- Adicione o arquivo `userparameter_supervisor.conf` no diretório `/etc/zabbix/zabbix_agentd.d`;
+- Add file named `userparameter_supervisor.conf` into `/etc/zabbix/zabbix_agentd.d`;
 
-- Adicione os arquivos `supervisor.py` e `queues.py` no diretório `/etc/zabbix/scripts`;
+- Add files named `supervisor.py` and `queues.py` into `/etc/zabbix/scripts`;
 
-- Reinicie o serviço do agente Zabbix;
+- Restart Zabbix Agent;
